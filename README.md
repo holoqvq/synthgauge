@@ -8,9 +8,9 @@ Always run scripts from the repository root via `uv run`.
 
 ## Tasks
 
-- Detection: YOLOv8n (`configs/config_detection.yaml`)
-- Keypoint detection: YOLO11s-pose (`configs/config_keypoints.yaml`)
-- Regression: ResNet-18 (`configs/config_regression.yaml`)
+- Detection: YOLO26n (`configs/config_detection.yaml`)
+- Keypoint detection: YOLO26s-pose (`configs/config_keypoints.yaml`)
+- Regression: ResNet-50 (`configs/config_regression.yaml`)
 
 ## Metrics
 
@@ -50,19 +50,19 @@ Detection and keypoint pipelines use separate YOLO dataset roots (`paths.yolo_da
 
 ## 2) Train Models
 
-YOLOv8n detection:
+YOLO26n detection:
 
 ```bash
 uv run ./training/train_detection_yolo.py --config configs/config_detection.yaml
 ```
 
-YOLO11s-pose keypoint detection:
+YOLO26s-pose keypoint detection:
 
 ```bash
 uv run ./training/train_keypoints_yolo_pose.py --config configs/config_keypoints.yaml
 ```
 
-Regression (ResNet-18, `reading_normalized`):
+Regression (ResNet-50, `reading_normalized`):
 
 ```bash
 uv run ./training/train_regression.py --config configs/config_regression.yaml
@@ -85,9 +85,9 @@ models/weights/{dataset_name}/{det|kp|reg}_{model_name}
 Example:
 
 ```bash
-models/weights/synthetic-analog-gauges/det_yolov8n
-models/weights/synthetic-analog-gauges/kp_yolo11s-pose
-models/weights/synthetic-analog-gauges/reg_resnet18
+models/weights/synthetic-analog-gauges/det_yolo26n
+models/weights/synthetic-analog-gauges/kp_yolo26s-pose
+models/weights/synthetic-analog-gauges/reg_resnet50
 ```
 
 ## 3) Evaluate Models

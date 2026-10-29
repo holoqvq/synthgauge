@@ -140,7 +140,7 @@ def _sample_images(image_paths: List[Path], num_samples: int, seed: int) -> List
 
 
 def _resolve_yolo_weights(cfg: Dict[str, Any], task: str, explicit: Optional[str]) -> Path:
-    model_name_default = "yolov8n.pt" if task == "detection" else "yolo11s-pose.pt"
+    model_name_default = "yolo26n.pt" if task == "detection" else "yolo26s-pose.pt"
     model_name = normalize_model_name(str(cfg.get("model", {}).get("name", model_name_default)))
     weights_key = "weights_dir_det" if task == "detection" else "weights_dir_kp"
     task_prefix = "det" if task == "detection" else "kp"
@@ -158,7 +158,7 @@ def _resolve_yolo_weights(cfg: Dict[str, Any], task: str, explicit: Optional[str
 
 
 def _resolve_regression_weights(cfg: Dict[str, Any], explicit: Optional[str]) -> Path:
-    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet18")).lower()
+    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet50")).lower()
     weights_dir = resolve_task_weights_dir(
         cfg,
         weights_key="weights_dir_reg",
@@ -259,7 +259,7 @@ def _load_regression_model(cfg: Dict[str, Any], weights_path: Path, device: torc
     model_cfg = cfg.get("model", {})
     model = GaugeRegressor(
         ModelConfig(
-            backbone=str(model_cfg.get("backbone", "resnet18")),
+            backbone=str(model_cfg.get("backbone", "resnet50")),
             pretrained=bool(model_cfg.get("pretrained", True)),
             dropout=float(model_cfg.get("dropout", 0.0)),
         )

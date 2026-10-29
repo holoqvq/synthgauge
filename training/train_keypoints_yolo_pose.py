@@ -558,7 +558,7 @@ def main() -> None:
     cos_lr = str(tcfg.get("lr_scheduler", "cosine")).lower() == "cosine"
     seed = int(tcfg.get("seed", 42))
     device = resolve_yolo_device(str(tcfg.get("device", "auto")))
-    model_name = normalize_model_name(str(mcfg.get("name", "yolo11s-pose.pt")))
+    model_name = normalize_model_name(str(mcfg.get("name", "yolo26s-pose.pt")))
     pretrained = bool(mcfg.get("pretrained", True))
     augment_cfg = dict(tcfg.get("augment", {}))
 

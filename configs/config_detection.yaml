@@ -12,16 +12,16 @@ paths:
 
   yolo_dataset_root: data/processed/synthetic-analog-gauges_det_yolo
   yolo_data_yaml: configs/synthgauge_det_yolo_data.yaml
-  weights_dir_det: models/weights/synthetic-analog-gauges/det_yolov8n
+  weights_dir_det: models/weights/synthetic-analog-gauges/det_yolo26n
 
 model:
-  name: yolov8n.pt
+  name: yolo26n.pt
   pretrained: true
   imgsz: 640
 
 training:
   device: cuda
-  epochs: 100
+  epochs: 10
   batch_size: 16
   num_workers: 4
   optimizer: AdamW

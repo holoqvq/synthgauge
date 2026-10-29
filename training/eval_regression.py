@@ -75,7 +75,7 @@ def _resolve_split_index(paths: Dict[str, Any], split: str) -> Path:
 
 
 def _resolve_weights_path(cfg: Dict[str, Any], explicit: Optional[str]) -> Path:
-    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet18")).lower()
+    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet50")).lower()
     weights_dir = resolve_task_weights_dir(
         cfg,
         weights_key="weights_dir_reg",
@@ -97,7 +97,7 @@ def _load_model(
     mcfg = cfg.get("model", {})
     model = GaugeRegressor(
         ModelConfig(
-            backbone=mcfg.get("backbone", "resnet18"),
+            backbone=mcfg.get("backbone", "resnet50"),
             pretrained=bool(mcfg.get("pretrained", True)),
             dropout=float(mcfg.get("dropout", 0.0)),
         )

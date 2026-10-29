@@ -165,7 +165,7 @@ def main() -> None:
     if not val_index.exists():
         raise FileNotFoundError(f"val index not found: {val_index}")
 
-    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet18")).lower()
+    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet50")).lower()
     weights_dir = resolve_task_weights_dir(
         cfg,
         weights_key="weights_dir_reg",

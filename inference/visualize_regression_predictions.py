@@ -47,7 +47,7 @@ def _resolve_device(requested: str, cfg_device: str) -> torch.device:
 
 
 def _resolve_weights_path(cfg: Dict[str, Any], weights_arg: Optional[str]) -> Path:
-    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet18")).lower()
+    model_identifier = str(cfg.get("model", {}).get("backbone", "resnet50")).lower()
     weights_dir = resolve_task_weights_dir(
         cfg,
         weights_key="weights_dir_reg",
@@ -92,7 +92,7 @@ def _load_regression_model(cfg: Dict[str, Any], weights_path: Path, device: torc
     mcfg = cfg.get("model", {})
     model = GaugeRegressor(
         ModelConfig(
-            backbone=str(mcfg.get("backbone", "resnet18")),
+            backbone=str(mcfg.get("backbone", "resnet50")),
             pretrained=bool(mcfg.get("pretrained", True)),
             dropout=float(mcfg.get("dropout", 0.0)),
         )

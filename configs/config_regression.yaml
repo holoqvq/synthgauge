@@ -13,7 +13,7 @@ paths:
   val_reg_output_json: data/processed/synthetic-analog-gauges_reg/val_regression.jsonl
   test_reg_output_json: data/processed/synthetic-analog-gauges_reg/test_regression.jsonl
 
-  weights_dir_reg: models/weights/synthetic-analog-gauges/reg_resnet18
+  weights_dir_reg: models/weights/synthetic-analog-gauges/reg_resnet50
 
 regression_target:
   category_name: gauge
@@ -40,13 +40,13 @@ transforms:
     blur_p: 0.2
 
 model:
-  backbone: resnet18
+  backbone: resnet50
   pretrained: true
   dropout: 0.1
 
 training:
   device: cuda
-  epochs: 50
+  epochs: 5
   batch_size: 32
   num_workers: 4
   lr: 3e-4

@@ -12,7 +12,7 @@ paths:
 
   yolo_dataset_root: data/processed/synthetic-analog-gauges_kp_yolo_pose_crop
   yolo_data_yaml: configs/synthgauge_kp_yolo_crop_data.yaml
-  weights_dir_kp: models/weights/synthetic-analog-gauges/kp_yolo11s-pose
+  weights_dir_kp: models/weights/synthetic-analog-gauges/kp_yolo26s-pose
 
 keypoints:
   names:
@@ -26,13 +26,13 @@ keypoints:
   crop_pad_ratio: 0.08
 
 model:
-  name: yolo11s-pose.pt
+  name: yolo26s-pose.pt
   pretrained: true
   imgsz: 960
 
 training:
   device: cuda
-  epochs: 100
+  epochs: 10
   batch_size: 8
   num_workers: 4
   optimizer: AdamW

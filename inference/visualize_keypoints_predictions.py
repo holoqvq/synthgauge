@@ -54,7 +54,7 @@ def _resolve_device(requested: str, cfg_device: str) -> str:
 
 def _resolve_weights_path(cfg: Dict[str, Any], weights_arg: Optional[str]) -> Path:
     model_name = normalize_model_name(
-        str(cfg.get("model", {}).get("name", "yolov8n-pose.pt"))
+        str(cfg.get("model", {}).get("name", "yolo26s-pose.pt"))
     )
     weights_dir = resolve_task_weights_dir(
         cfg,
