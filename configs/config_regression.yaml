@@ -46,7 +46,7 @@ model:
 
 training:
   device: cuda
-  epochs: 5
+  epochs: 50
   batch_size: 32
   num_workers: 4
   lr: 3e-4
